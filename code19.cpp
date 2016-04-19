@@ -22,6 +22,7 @@ string DivisionStringified(int num1, int num2) {
 	for (int x = temp.length() - 1; x >= 0; x--)
 	{
 		// Analyze how large the number is
+		// If 3 digits than add a comma
 		if (count == 3)
 		{
 			temp2.insert(x+1, ",");

@@ -35,9 +35,9 @@ string ABCheck(string str) {
 		}
 	}
 
-
 	return "false";
-
+	// Note, looking back at code this could have been better simplified into a single condition
+	// if (string[x] == 'a' && and string[x+4] == 'b') return true it would also be vice versa for the b character
 }
 
 int main() {

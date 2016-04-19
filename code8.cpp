@@ -14,6 +14,10 @@ void TimeConvert(int num) {
 	{
 		hour = false;
 
+		// Check how many hours are in the argument
+		// Will continue to loop until we are only left with minutes (x < 60)
+		// Looking back at this problem the other more basic method is
+		// argument/60 to find hour and argument/60 remainder to find minutes
 		if (num >= 60)
 		{
 			count++;

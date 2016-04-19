@@ -5,6 +5,7 @@
 using namespace std;
 
 int ChangingSequence(int arr[], int size) {
+	// The conditions will determine what the starting sequence is
 	if (arr[0] < arr[1])
 	{
 		for (int x = 0; x < size - 1; x++)

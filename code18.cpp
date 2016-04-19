@@ -7,7 +7,7 @@ using namespace std;
 
 void SecondGreatLow(int arr[], int size) {
 
-	if (size == 2)
+	if (size == 2) // In the case that there is only 2 numbers
 	{
 		if (arr[0] < arr[1])
 		{
@@ -20,6 +20,7 @@ void SecondGreatLow(int arr[], int size) {
 	}
 	else
 	{
+		// Implementing a bubble sort to sort the array from least to greatest
 		bool swap;
 		int temp;
 
@@ -41,6 +42,7 @@ void SecondGreatLow(int arr[], int size) {
 
 		int index = 0;
 		int index2 = size - 1;
+		// Loop to check if the first values are the same ex . 2,2,2,2.....
 		for (int y = 0; y < size-1; y++)
 		{
 			if (arr[y] == arr[y + 1])
@@ -52,6 +54,7 @@ void SecondGreatLow(int arr[], int size) {
 				break;
 			}
 		}
+		// Loop to check if the last values are the same ex .......45,45,45
 		for (int z = size - 1; size > 0; z--)
 		{
 			if (arr[z] == arr[z - 1])

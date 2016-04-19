@@ -24,7 +24,7 @@ int AdditivePersistence(int num) {
 	do
 	{
 		total = 0;
-		count++;
+		count++; // Keeps track of the count
 
 		for (int x = 0; x < temp.length(); x++)
 		{

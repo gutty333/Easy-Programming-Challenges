@@ -5,7 +5,6 @@
 #include <string>
 using namespace std;
 
-
 int NumberAddition(string str) {
 
 	int total = 0;
@@ -13,9 +12,13 @@ int NumberAddition(string str) {
 
 	for (int x = 0; x < str.length(); x++)
 	{
+		// Check if the current value is a digit
 		if (isdigit(str[x]))
 		{
 			temp.push_back(str[x]);
+
+			// Loop to analyze how many digits this value will be
+			// Example 88, 225, etc
 			for (int y = x + 1; y < str.length(); y++)
 			{
 				if (y >= str.length())
@@ -25,7 +28,7 @@ int NumberAddition(string str) {
 				else if (isdigit(str[y]))
 				{
 					temp.push_back(str[y]);
-					x = y;
+					x = y; // Will edit the outer loop index to avoid including repeating numbers
 				}
 				else
 				{
@@ -33,6 +36,7 @@ int NumberAddition(string str) {
 				}
 			}
 
+			// Keep track of the total value
 			total += stoi(temp);
 			temp.clear();
 		}

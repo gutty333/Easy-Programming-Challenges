@@ -10,12 +10,12 @@ string ArithGeo(int arr[], const int size) {
 	int difference = 0, difference2 = 0;
 	bool arith = true, geo = true;
 
-	for (int x = size-1; x > 0; x--)
-	{
-		difference = arr[x] - arr[x - 1];
-		difference2 = arr[x] / arr[x-1];
-	}
+	// First find the difference of two numbers for both an arithmetic and geometric sequence
+	difference = arr[1] - arr[0];
+	difference2 = arr[1] / arr[0];
 
+	// Check is the difference is true for all elements
+	// If true than the array is arithmetic
 	for (int y = 0; y < size-1 && arith; y++)
 	{
 		arith = false;
@@ -25,6 +25,8 @@ string ArithGeo(int arr[], const int size) {
 		}
 	}
 
+	// Check is the difference is true for all elements
+	// If true than the array is geometric
 	for (int z = 0; z < size - 1 && geo; z++)
 	{
 		geo = false;

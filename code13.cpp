@@ -9,6 +9,7 @@ string ExOh(string str) {
 
 	int xCount = 0, oCount = 0;
 
+	// Simple iteration to keep count on how many characters are either x or o
 	for (int x = 0; x < str.length(); x++)
 	{
 		if (str[x] == 'x')

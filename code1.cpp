@@ -5,31 +5,18 @@
 using namespace std;
 
 string FirstReverse(string str) {
-
-	/*string temp;
-	int index = 0;
-	int size = str.length()-1;
-
-	for (size; size >= 0; size--)
-	{
-		temp.push_back(str[size]);
-		index++;
-	}
-
-	return temp;*/
-
-
-	// Better solution
+	// Set placeholder string value to copy the original
 	string temp = str;
 	int index = 0;
 
+	// Traverse the placeholder value backwards
+	// At the same time edit the original in the backward iteration
 	for (int x = temp.length()-1; x >= 0; x--)
 	{
 		str[index] = temp[x];
 		index++;
 	}
 	return str;
-
 }
 
 int main() {
@@ -37,5 +24,4 @@ int main() {
 	// keep this function call here
 	cout << FirstReverse("coderbyte");
 	return 0;
-
 }

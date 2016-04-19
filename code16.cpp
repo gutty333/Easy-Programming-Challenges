@@ -55,9 +55,10 @@ string ArrayAdditionI(int arr[], int size)
 		do
 		{
 			total = value;
-			index = -1;
+			index = -1; // Will help keep track of which number we are analyzing
 			for (int y = 0; y < size; y++)
 			{
+				// If the value is the largest value, current value, or already in the list of past value, than ignore
 				if (y == i || arr[y] == high || search(numberSkip, numberSkip.size(), arr[y]))
 				{
 					continue;

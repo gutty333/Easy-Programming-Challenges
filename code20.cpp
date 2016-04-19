@@ -49,6 +49,7 @@ int CountingMinutesI(string str) {
 		}
 		else
 		{
+			// If colon is found this will help signify we are now taking in the minutes
 			if (str[x] == ':')
 			{
 				colon = true;
@@ -84,7 +85,9 @@ int CountingMinutesI(string str) {
 	istringstream(min2) >> m2;
 	istringstream(hour1) >> h1;
 	istringstream(hour2) >> h2;*/
-
+	
+	// Various condition to determine the calculation
+	// For example in the case that we have a 24 hr relapse, etc
 	if (stoi(hour1) == stoi(hour2) && num1 == num2 && stoi(min1) > stoi(min2))
 	{
 		hour = 24 - (stoi(hour1) - stoi(hour2));
@@ -127,3 +130,20 @@ int main() {
 	return 0;
 
 }
+
+/*Note: Looking back at the code this could have been better simplifies by utilizing various string methods
+Example to find the time we could do
+
+break = str.find('-')
+
+break the times
+string1 = str.substr(0,break)
+string2 = str.substr(break+1)
+
+colon = string1.find(':')
+colon2 = string2.find(':')
+
+hour1 = string1.substring(0,colon);
+min1 = string1.substring(colon+1);
+Same would apply to the other time, overall this eliminates the need for a loop and can just focus on calculations
+*/

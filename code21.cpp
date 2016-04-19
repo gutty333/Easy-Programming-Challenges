@@ -10,13 +10,15 @@ int MeanMode(int arr[], int size) {
 	int total = 0, average;
 	int count = 0, temp, mode = 0, index = 0;
 
+	// Finding the mean of the array
+	// Looking back the total accumulator could go in the other loop
 	for (int x = 0; x < size; x++)
 	{
 		total += arr[x];
 	}
-	
 	average = total / size;
 
+	// Finding the mode of the array
 	for (int y = 0; y < size; y++)
 	{
 		temp = arr[y];

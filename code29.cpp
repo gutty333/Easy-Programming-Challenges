@@ -14,6 +14,7 @@ void OffLineMinimum(string strArr[], int size) {
 
 	for (int x = 0; x < size; x++)
 	{
+		// Keep track of integers before taking the smallest value
 		if (strArr[x] != "E")
 		{
 			temp.push_back(strArr[x]);
@@ -22,7 +23,7 @@ void OffLineMinimum(string strArr[], int size) {
 		{
 			string low = temp[0];
 			index = 0;
-
+			// Find the lowest of the current set
 			for (int y = 0; y < temp.size(); y++)
 			{
 				if (temp[y] < low)
@@ -32,11 +33,15 @@ void OffLineMinimum(string strArr[], int size) {
 				}
 			}
 
+			// Erase the lowest value from that list
+			// This will aid in finding the next lowest value, when we keep adding more integers
 			temp.erase(temp.begin()+index);
+			// Save the lowest value to a new list
 			temp2.push_back(low);
 		}
 	}
 
+	// Print out the results
 	for (int z = 0; z < temp2.size(); z++)
 	{
 		if (z == temp2.size() - 1)
@@ -49,6 +54,9 @@ void OffLineMinimum(string strArr[], int size) {
 		}
 	}
 }
+// Note looking back at the code, there is not need for the last loop
+// We could print out the result in the previous loop, Example instead of saving the lowest value to a new list
+// We instead print out that value
 
 int main() {
 

@@ -17,6 +17,7 @@ string Palindrome(string str) {
 	}
 	int size = temp.length() - 1;
 
+	// Compare the new string by analyzing the characters from the front and back
 	for (int x = 0; x < temp.length(); x++)
 	{
 		if (temp[x] != temp[size])

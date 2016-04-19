@@ -10,6 +10,7 @@ string ThirdGreatest(string strArr[], int size) {
 	int temp, temp2, temp3, index, index2, index3;
 	temp = temp2 = temp3 = 0;
 
+	// Find the largest word in the string
 	for (int y = 0; y < size; y++)
 	{
 		if (strArr[y].length() > temp)
@@ -18,7 +19,7 @@ string ThirdGreatest(string strArr[], int size) {
 			index = y;
 		}
 	}
-
+	// Find the second largest word in the string
 	for (int z = 0; z < size; z++)
 	{
 		if (strArr[z].length() >= temp2 && z != index)
@@ -27,7 +28,7 @@ string ThirdGreatest(string strArr[], int size) {
 			index2 = z;
 		}
 	}
-
+	// Find the third largest word
 	for (int x = 0; x < size; x++)
 	{
 		if (strArr[x].length() >= temp3 && x != index && x != index2)

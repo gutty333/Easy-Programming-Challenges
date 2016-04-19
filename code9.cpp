@@ -10,6 +10,7 @@ string AlphabetSoup(string str) {
 	bool swap;
 	char temp;
 
+	// Doing a bubble sort to implementation to compare all the characters
 	do
 	{
 		swap = false;

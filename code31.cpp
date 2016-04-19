@@ -11,17 +11,17 @@ string OverlappingRanges(int arr[], int size) {
 	int count = 0;
 	vector <int> range1;
 	vector <int> range2;
-
+	// Find the first range
 	for (int x = arr[0]; x <= arr[1]; x++)
 	{
 		range1.push_back(x);
 	}
-
+	// Find the second range
 	for (int y = arr[2]; y <= arr[3]; y++)
 	{
 		range2.push_back(y);
 	}
-
+	// Check how many numbers match between both range
 	for (int i = 0; i < range1.size(); i++)
 	{
 		for (int z = 0; z < range2.size(); z++)
