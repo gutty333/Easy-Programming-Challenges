@@ -10,7 +10,7 @@ string FirstReverse(string str) {
 	int index = 0;
 
 	// Traverse the placeholder value backwards
-	// At the same time edit the original in the backward iteration
+	// At the same time edit the original
 	for (int x = temp.length()-1; x >= 0; x--)
 	{
 		str[index] = temp[x];

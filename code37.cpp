@@ -3,60 +3,89 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
 using namespace std;
 
 string WaveSorting(int arr[], int size) 
 {
-	int temp;
-	bool swap;
+	int temp, index  = 0;
+	bool swap, found;
+	vector <int> arr2;
 
-	// Loop to perform the wave sort
+
+
 	do
 	{
-		swap = false;
-
 		for (int x = 0; x < size - 1; x++)
 		{
-			if (x%2 != 0 && arr[x] > arr[x + 1])
+			if (x % 2 != 0 && arr[x] >= arr[x + 1])
 			{
-
-				temp = arr[x];
-				arr[x] = arr[x + 1];
-				arr[x + 1] = temp;
-				swap = true;
+				for (int y = x + 1; y < size; y++)
+				{
+					if (arr[x] > arr[y])
+					{
+						temp = arr[x];
+						arr[x] = arr[y];
+						arr[y] = temp;
+						break;
+					}
+				}
 			}
-			else if (x%2  == 0 && arr[x] < arr[x + 1])
+
+			/*
+
+			
+			0 1 2 3 3 3 3 3 8 9
+			1 0 2 3 3 3 3 3 8 9
+			1 0 3 2 3 3 3 3 8 9
+			1 0 3 2 3 8 3 3 3 9
+			1 0 3 2 3 8 3 9 3 3
+
+			0 1 2 3 3 3 3 3 8 9
+			0 1 
+
+			*/
+			else if (x % 2 == 0 && arr[x] <= arr[index + 1])
 			{
-				temp = arr[x];
-				arr[x] = arr[x + 1];
-				arr[x + 1] = temp;
-				swap = true;
+				for (int y = index + 1; y < size; y++)
+				{
+					if (arr[x] < arr[y])
+					{
+						temp = arr[x];
+						arr[x] = arr[y];
+						arr[y] = temp;
+						break;
+					}
+				}
 			}
 		}
-	} while (swap);
 
-	bool wavesort = true;
-	// Loop to check if the wave sort is correct
-	for (int x = 0; x < size-1; x++)
-	{
-		if (x % 2 != 0 && arr[x] >= arr[x+1])
+
+
+		bool wavesort = true;
+		// Loop to check if the wave sort is correct
+		for (int x = 0; x < size - 1; x++)
 		{
-			wavesort = false;
+			if (x % 2 != 0 && arr[x] >= arr[x + 1])
+			{
+				wavesort = false;
+			}
+			else if (x % 2 == 0 && arr[x] <= arr[x + 1])
+			{
+				wavesort = false;
+			}
 		}
-		else if (x % 2 == 0 && arr[x] <= arr[x + 1])
+
+		if (wavesort)
 		{
-			wavesort = false;
+			return "true";
 		}
-	}
+	} while (index < size);
+
+
 	
-	if (wavesort)
-	{
-		return "true";
-	}
-	else
-	{
-		return "false";
-	}
+
+	return "false";
 }
 
 int main() 
@@ -67,6 +96,9 @@ int main()
 	int D[] = { 0, 1, 2, 3, 3, 3, 3, 3, 8, 9 };
 	int E[] = { 1, 1, 1, 1, 5, 2, 5, 1, 1, 3, 5, 6, 8, 3 };
 
+	// 5 1 1 1 1 2 5 1 1 3 5 6 8 3
+	// 5 1 2 1 1 1 5 1 1 3 5 6 8 3
+	// 3 1 5 1 6 1 3 1 5 1 2 1 5 
 	cout << WaveSorting(A, sizeof(A) / sizeof(A[0])) << endl; // true 
 	cout << WaveSorting(B, sizeof(B) / sizeof(B[0])) << endl; // false
 	cout << WaveSorting(C, sizeof(C) / sizeof(C[0])) << endl; // true
@@ -79,7 +111,7 @@ int main()
 
 	3 1 3 1 5 1 5 1 5 1 2 1 8 6
 
-	5 1 5 1 5 1 3 1 3 1 6 1 8 2
+	5 1 5 1 5 1 3 1 3 1 2 1 8 6
 
 
 
