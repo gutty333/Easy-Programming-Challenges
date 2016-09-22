@@ -10,7 +10,7 @@ using namespace std;
 string ArrayMatching(string strArr[], int size) 
 {
 	int length = 0, length2 = 100 * 100, total, high;
-	vector <vector<int>> list(size);
+	vector <vector<int> > list(size);
 	vector <int> newArray;
 	string result;
 
