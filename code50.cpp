@@ -10,6 +10,8 @@ Another example : if arr is[4, 5, 2, 3, 1, 0] then you can distribute the sandwi
 #include <string>	
 using namespace std;
 
+// Not Finished
+
 int FoodDistribution(int arr[], int size) 
 {
 

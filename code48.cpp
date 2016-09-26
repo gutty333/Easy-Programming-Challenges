@@ -5,8 +5,6 @@
 #include <cmath>
 using namespace std;
 
-// Not finished
-
 int PowerSetCount(int arr[], int size)
 {
 	return pow(2,size);

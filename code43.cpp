@@ -6,6 +6,7 @@
 #include <algorithm>
 using namespace std;
 
+// Not finished
 
 int LongestIncreasingSequence(int arr[], int size) 
 {
