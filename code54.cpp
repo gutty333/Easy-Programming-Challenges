@@ -9,6 +9,8 @@ There will only ever be one unique solution and the list of available weights wi
 #include <string>	
 using namespace std;
 
+// Not Finished
+
 string ScaleBalancing(string strArr[]) 
 {
 

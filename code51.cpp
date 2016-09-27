@@ -3,18 +3,75 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
 using namespace std;
 
-// Not Finished
-
-string BasicRomanNumerals(string str) 
+int convert(char val)
 {
+	switch (val)
+	{
+		case 'I':
+			return 1;
+		case 'V':
+			return 5;
+		case 'X':
+			return 10;
+		case 'L':
+			return 50;
+		case 'C':
+			return 100;
+		case 'D':
+			return 500;
+		case 'M':
+			return 1000;
+	}
+}
 
+int BasicRomanNumerals(string str) 
+{
+	vector <int> list;
+	int total = 0;
+
+	// Loop to get number values of each symbol
+	for (int x = 0; x < str.length(); x++)
+	{
+		list.push_back(convert(str[x]));
+	}
+
+	// Loop to perform the correct conversion
+	int temp = 0;
+	for (int x = 0; x < list.size()-1; x++)
+	{
+		if (list[x] < list[x + 1])
+		{
+			total += list[x + 1] - list[x];
+			x++;
+			if (x + 1 == list.size() - 1)
+			{
+
+				total += list[x + 1];
+			}
+		}
+		else
+		{
+			total += list[x];
+			if (x + 1 == list.size() - 1)
+			{
+				total += list[x + 1];
+			}
+		}
+	}
+
+	return total;
 }
 
 int main()
 {
 	cout << BasicRomanNumerals("XXIV") << endl; // 24
+	cout << BasicRomanNumerals("XV") << endl; // 15
+	cout << BasicRomanNumerals("IV") << endl; // 4
+	cout << BasicRomanNumerals("XLVI") << endl; // 46
+	cout << BasicRomanNumerals("XCV") << endl; // 95
 	return 0;
 
 }

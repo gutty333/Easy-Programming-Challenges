@@ -9,6 +9,8 @@ For example: if str is "r?d?drdd" then your program should output the final corr
 #include <string>
 using namespace std;
 
+// Not Finished
+
 string CorrectPath(string str) 
 {
 
@@ -17,7 +19,7 @@ string CorrectPath(string str)
 int main() 
 {
 
-	cout << CorrectPath(gets(stdin));
+	cout << CorrectPath() << endl;
 	return 0;
 
 }
