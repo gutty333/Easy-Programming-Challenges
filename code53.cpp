@@ -104,19 +104,20 @@ void reset(int grid[][5], int resetLocation, vector <vector <int> >& spots, int&
 	{
 		// Replace the grid with the default 0 which signifies an empty spot
 		grid[spots[spots.size() - 1][0]][spots[spots.size() - 1][1]] = 0;
-		if (spots.size() <= 0) // Condition in the case our ? mark is at the beginning
-		{
-			newRow = spots[0][0];
-			newCol = spots[0][1];
-		}
 		spots.pop_back();
 	}
 
 	// Update the original row and col for correct movement
+	// Check when the ? mark is at the front
 	if (spots.size() >= 1)
 	{
 		newRow = spots[spots.size() - 1][0];
 		newCol = spots[spots.size() - 1][1];
+	}
+	else
+	{
+		newRow = 0;
+		newCol = 0;
 	}
 }
 
@@ -233,7 +234,6 @@ string CorrectPath(string str)
 				indexLocations.push_back(x);
 			}
 
-			
 			total++;
 		}
 
@@ -246,22 +246,13 @@ string CorrectPath(string str)
 		}
 	}
 
-	for (int x = 0; x < 5; x++)
-	{
-		for (int y = 0; y < 5; y++)
-		{
-			cout << grid[x][y] << " ";
-		}
-		cout << endl;
-	}
-
 	// Loop to generate the final string output that will have the correct characters represent the directions
 	int count = 0;
 	for (int x = 0; x < str.length(); x++)
 	{
 		if (str[x] == '?')
 		{
-			str[x] = moveOptions[count].back();
+			str[x] = moveOptions[count][moveOptions[count].size() - 1];
 			count++;
 		}
 	}
@@ -270,10 +261,11 @@ string CorrectPath(string str)
 
 int main()
 {
-
-	//cout << CorrectPath("r?d?drdd") << endl; // rrdrdrdd
+	cout << CorrectPath("r?d?drdd") << endl; // rrdrdrdd
 	cout << CorrectPath("???rrurdr?")<< endl; // dddrrurdrd
-	//cout << CorrectPath("drdr??rrddd?")<< endl; // drdruurrdddd
+	cout << CorrectPath("drdr??rrddd?")<< endl; // drdruurrdddd
+	cout << CorrectPath("????ruu??dd?") << endl;
+	cout << CorrectPath("rdrd??d?rr??") << endl;
 	return 0;
 
 }
