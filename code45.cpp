@@ -9,17 +9,20 @@ using namespace std;
 
 int ProductDigits(int num) 
 {
-	for (int x = 1; x < num; x++)
+	for (int x = 1; x < 9; x++)
 	{
-		for (int y = 1; y < num; y++)
+		if (num % x == 0)
 		{
-			if (num / x == 1)
+			for (int y = x + 1; y < 9; y++)
 			{
-
+				if (x*y == num)
+				{
+					return 2;
+				}
 			}
 		}
 	}
-	return num;
+	return 3;
 }
 
 int main()
@@ -29,5 +32,4 @@ int main()
 	cout << ProductDigits(6) << endl; // 2
 	cout << ProductDigits(23) << endl; // 3
 	return 0;
-
 }
