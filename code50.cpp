@@ -10,19 +10,96 @@ Another example : if arr is[4, 5, 2, 3, 1, 0] then you can distribute the sandwi
 #include <string>	
 using namespace std;
 
-// Not Finished
-
 int FoodDistribution(int arr[], int size) 
 {
+	int total = arr[0]; // Number of Sandwiches
+	int difference = 0; // Use to store the difference
+	bool give; // Signal each time a distribution takes place
 
+	// Checking for the difference of the original
+	// In some cases we might not need to do food distribution if the difference across is 0
+	for (int x = 1; x < size-1; x++)
+	{
+		difference += (arr[x] - arr[x + 1]);
+	}
+	if (difference == 0)
+	{
+		return 0;
+	}
+
+	// Loop to distribute food to those that are hungry
+	// The distribution will be based by comparing the hunger levels adjacent to each other
+	// The goal is to get the hunger levels to be equal across all people if possible
+	do
+	{
+		give = false;
+
+		for (int x = 1; x < size - 1; x++)
+		{
+			if (x == 1)
+			{
+				if (arr[x] > arr[x + 1] && total > 0)
+				{
+					give = true;
+					arr[x]--;
+					cout << "index " << x << " now is " << arr[x] << endl;
+					total--;
+				}
+			}
+			else if (arr[x] > arr[x + 1] && arr[x] > arr[x - 1] && total > 0)
+			{
+				give = true;
+				arr[x]--;
+				cout << "index " << x << " now is " << arr[x] << endl;
+				total--;
+			}
+		}
+	} while (give);
+
+	// Checking for the difference after the distribution took place
+	difference = 0;
+	for (int x = 1; x < size - 1; x++)
+	{
+		int temp = arr[x] - arr[x + 1];
+		if (temp < 0)
+		{
+			temp *= -1;
+		}
+		difference += temp;
+	}
+
+	return difference;
 }
 
 int main() 
 {
 	int A[] = { 5, 3, 1, 2, 1 };
 	int B[] = { 4, 5, 2, 3, 1, 0 };
-	cout << FoodDistribution(A, sizeof(A)/sizeof(A[0])); // 0
-	cout << FoodDistribution(B, sizeof(B) / sizeof(B[0])); // 0
+	int C[] = { 5, 2, 2, 2, 2, 2 };
+	int D[] = { 5, 2, 3, 4, 5 };
+	int E[] = { 3, 2, 1, 0, 4, 1, 0 };
+	cout << FoodDistribution(A, sizeof(A)/sizeof(A[0])) << endl; // 0
+	cout << FoodDistribution(B, sizeof(B) / sizeof(B[0])) << endl; // 2
+	cout << FoodDistribution(C, sizeof(C) / sizeof(C[0])) << endl; // 0
+	cout << FoodDistribution(D, sizeof(D) / sizeof(D[0])) << endl; // 1
+	cout << FoodDistribution(E, sizeof(E) / sizeof(E[0])) << endl; // 4
 	return 0;
 
+	/*
+	2 3 4 5		5
+	2 2 4 5		4
+	2 2 3 5		3
+	2 2 3 4		2
+	2 2 2 4		1
+	2 2 2 3		0
+
+
+	2 1 0 4 1 0		3
+	2 1 0 3 1 0		2
+	2 1 0 2 1 0		1
+	2 1 0 1 1 0		0
+	
+	1 1 1 0 1
+	
+	*/
 }
