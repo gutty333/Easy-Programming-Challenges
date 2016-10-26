@@ -7,8 +7,36 @@ Another example : if arr is[4, 5, 2, 3, 1, 0] then you can distribute the sandwi
 */
 
 #include <iostream>	
-#include <string>	
+#include <string>
+#include <vector>
 using namespace std;
+
+void bubbleSort(vector <int>& list, vector <int>& index)
+{
+	int temp, temp2;
+	bool swap;
+ 
+	do
+	{
+		swap = false;
+
+		for (int x = 1; x < list.size()-1; x++)
+		{
+			// Will move the elements around in the new list
+			// Also keeps track of the index in relation to the original array
+			if (list[x] < list[x + 1])
+			{
+				temp = list[x];
+				temp2 = index[x];
+				index[x] = index[x + 1];
+				index[x + 1] = temp2;
+				list[x] = list[x + 1];
+				list[x + 1] = temp;
+				swap = true;
+			}
+		}
+	} while (swap);
+}
 
 int FoodDistribution(int arr[], int size) 
 {
@@ -20,41 +48,51 @@ int FoodDistribution(int arr[], int size)
 	// In some cases we might not need to do food distribution if the difference across is 0
 	for (int x = 1; x < size-1; x++)
 	{
-		difference += (arr[x] - arr[x + 1]);
+		int temp = arr[x] - arr[x + 1];
+		if (temp < 0)
+		{
+			temp *= -1;
+		}
+		difference += temp;
 	}
 	if (difference == 0)
 	{
 		return 0;
 	}
 
-	// Loop to distribute food to those that are hungry
-	// The distribution will be based by comparing the hunger levels adjacent to each other
-	// The goal is to get the hunger levels to be equal across all people if possible
+	vector <int> newList, indexConect;
+	newList.push_back(-1); // Garbage value just to keep the size parallel to original array
+	indexConect.push_back(-1);
+
+	for (int x = 1; x < size; x++)
+	{
+		newList.push_back(arr[x]);
+		indexConect.push_back(x);
+	}
+
+	bubbleSort(newList, indexConect);
+
+	// Loop to distribute the food
 	do
 	{
 		give = false;
-
-		for (int x = 1; x < size - 1; x++)
+		for (int x = 1; x < newList.size() - 1 && total > 0; x++)
 		{
-			if (x == 1)
-			{
-				if (arr[x] > arr[x + 1] && total > 0)
-				{
-					give = true;
-					arr[x]--;
-					cout << "index " << x << " now is " << arr[x] << endl;
-					total--;
-				}
-			}
-			else if (arr[x] > arr[x + 1] && arr[x] > arr[x - 1] && total > 0)
+			if (newList[x] > newList[x + 1])
 			{
 				give = true;
-				arr[x]--;
-				cout << "index " << x << " now is " << arr[x] << endl;
+				newList[x]--;
 				total--;
+				break;
 			}
 		}
 	} while (give);
+
+	// Loop to match the new list to the original order
+	for (int x = 1; x < newList.size(); x++)
+	{
+		arr[x] = newList[indexConect[x]];
+	}
 
 	// Checking for the difference after the distribution took place
 	difference = 0;
@@ -78,28 +116,44 @@ int main()
 	int C[] = { 5, 2, 2, 2, 2, 2 };
 	int D[] = { 5, 2, 3, 4, 5 };
 	int E[] = { 3, 2, 1, 0, 4, 1, 0 };
+	int F[] = { 4, 5, 4, 5, 2, 3, 1, 2 };
+	int G[] = { 7, 5, 4, 3, 4, 5, 2, 3, 1, 4, 5 };
 	cout << FoodDistribution(A, sizeof(A)/sizeof(A[0])) << endl; // 0
 	cout << FoodDistribution(B, sizeof(B) / sizeof(B[0])) << endl; // 2
 	cout << FoodDistribution(C, sizeof(C) / sizeof(C[0])) << endl; // 0
 	cout << FoodDistribution(D, sizeof(D) / sizeof(D[0])) << endl; // 1
 	cout << FoodDistribution(E, sizeof(E) / sizeof(E[0])) << endl; // 4
-	return 0;
+	cout << FoodDistribution(F, sizeof(F) / sizeof(F[0])) << endl; // 3
+	cout << FoodDistribution(G, sizeof(G) / sizeof(G[0])) << endl; // 6
 
 	/*
-	2 3 4 5		5
-	2 2 4 5		4
-	2 2 3 5		3
-	2 2 3 4		2
-	2 2 2 4		1
-	2 2 2 3		0
+	5 4 5 2 3 1 2
+	
+	4 4 4 2 3 1 2
+	4 4 4 2 2 1 2
+	4 4 4 2 2 1 1
+	0 0 2 0 1 0
 
 
-	2 1 0 4 1 0		3
-	2 1 0 3 1 0		2
-	2 1 0 2 1 0		1
-	2 1 0 1 1 0		0
+	5 5 4 3 2 2 1		4
+	5 4 4 3 2 2 1		3
+	4 4 4 3 2 2	1		2
+	4 4 3 3 2 2 1		1
+	4 3 3 3 2 2 1		0
+
+	4 3 3 2 3 1 2
+	1 0 1 1 2 1
+
 	
-	1 1 1 0 1
 	
+	5 4 3 4 5 2 3 1 4 5
+
+
+	
+
 	*/
+
+
+
+	return 0;
 }
