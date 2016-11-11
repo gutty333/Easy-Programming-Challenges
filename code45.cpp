@@ -3,26 +3,34 @@
 
 #include <iostream>
 #include <string>
+#include <sstream>
 using namespace std;
-
-// Not Finished
 
 int ProductDigits(int num) 
 {
-	for (int x = 1; x < 9; x++)
+	int result = 10000;
+
+	for (int x = 1; x <= num; x++)
 	{
-		if (num % x == 0)
+		for (int y = 1; y <= num; y++)
 		{
-			for (int y = x + 1; y < 9; y++)
+			// Find which numbers multiply to our input
+			if (x*y == num)
 			{
-				if (x*y == num)
+				// Convert to a string to later find the amount of digits
+				stringstream convert;
+				convert << x << y;
+
+				// Keep track of the calculation with lowest amount of digits
+				if (convert.str().length() < result)
 				{
-					return 2;
+					result = convert.str().length();
 				}
 			}
 		}
 	}
-	return 3;
+	
+	return result;
 }
 
 int main()
@@ -31,5 +39,8 @@ int main()
 	cout << ProductDigits(90) << endl; // 3
 	cout << ProductDigits(6) << endl; // 2
 	cout << ProductDigits(23) << endl; // 3
+	cout << ProductDigits(1) << endl; // 2
+	cout << ProductDigits(5000) << endl; // 4
+	cout << ProductDigits(72) << endl; // 2
 	return 0;
 }
