@@ -12,7 +12,6 @@ int SimpleAdding(int num) {
 		total += x;
 	}
 	return total;
-
 }
 
 int main() {
@@ -20,5 +19,4 @@ int main() {
 	// keep this function call here
 	cout << SimpleAdding(12);
 	return 0;
-
 }

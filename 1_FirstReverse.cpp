@@ -19,9 +19,8 @@ string FirstReverse(string str) {
 	return str;
 }
 
-int main() {
-
-	// keep this function call here
+int main() 
+{
 	cout << FirstReverse("coderbyte");
 	return 0;
 }

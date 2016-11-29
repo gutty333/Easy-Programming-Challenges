@@ -25,10 +25,8 @@ string LetterCapitalize(string str) {
 	return str;
 }
 
-int main() {
-
-	// keep this function call here
+int main() 
+{
 	cout << LetterCapitalize("i ran there");
 	return 0;
-
 }

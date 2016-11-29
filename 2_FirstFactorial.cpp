@@ -17,10 +17,8 @@ int FirstFactorial(int num) {
 	return multiple;
 }
 
-int main() {
-
-	// keep this function call here
+int main() 
+{
 	cout << FirstFactorial(4);
 	return 0;
-
 }
