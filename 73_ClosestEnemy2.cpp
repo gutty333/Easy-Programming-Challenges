@@ -12,10 +12,41 @@ For this input your program should return 2 because the closest enemy (2) is 2 s
 
 #include <iostream>
 #include <string>
+#include <vector>
 using namespace std;
 
-string ClosestEnemyII(string strArr[], int size) 
+/*
+locate starting point
+check if the matrix has any enemies
+*/
+
+int ClosestEnemyII(string strArr[], int size) 
 {
+	int startX, startY;
+	bool enemyFound = false;
+
+	for (int x = 0; x < size; x++)
+	{
+		for (int y = 0; y < strArr[x].size(); y++)
+		{
+			if (strArr[x][y] == '1')
+			{
+				startX = x;
+				startY = y;
+			}
+
+			if (strArr[x][y] == '2')
+			{
+				enemyFound = true;
+			}
+		}
+	}
+
+	if (!enemyFound)
+	{
+		return 0;
+	}
+
 
 }
 
