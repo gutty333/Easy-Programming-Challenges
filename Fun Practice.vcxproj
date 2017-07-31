@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="74_SerialNumber.cpp" />
+    <ClCompile Include="77_PalindromeSwapper.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{48DF0788-2D72-474C-9946-5512D2A5D092}</ProjectGuid>

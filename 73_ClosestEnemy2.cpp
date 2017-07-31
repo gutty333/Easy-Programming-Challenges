@@ -16,6 +16,9 @@ For this input your program should return 2 because the closest enemy (2) is 2 s
 using namespace std;
 
 /*
+NOT FINISHED
+
+
 locate starting point
 check if the matrix has any enemies
 */

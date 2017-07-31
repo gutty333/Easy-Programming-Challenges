@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="74_SerialNumber.cpp">
+    <ClCompile Include="77_PalindromeSwapper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
