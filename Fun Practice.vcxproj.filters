@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="77_PalindromeSwapper.cpp">
+    <ClCompile Include="78_RemoveBrackets.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

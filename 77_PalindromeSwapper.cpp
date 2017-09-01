@@ -60,6 +60,6 @@ int main()
 	cout << PalindromeSwapper("anna") << endl; // anna
 	cout << PalindromeSwapper("kyaak") << endl; // kayak
 	cout << PalindromeSwapper("rcaecar") << endl; // racecar
-	cout << PalindromeSwapper("madam") << endl; 
+	cout << PalindromeSwapper("madam") << endl; // madam
 	return 0;
 }
