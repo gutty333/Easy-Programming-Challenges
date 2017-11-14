@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="78_RemoveBrackets.cpp">
+    <ClCompile Include="80_StarRating.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
