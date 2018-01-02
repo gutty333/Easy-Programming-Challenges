@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="80_StarRating.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="81_MovingMedian.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
