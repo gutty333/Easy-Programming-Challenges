@@ -18,5 +18,8 @@
     <ClCompile Include="81_MovingMedian.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="82_ClosestEnemy2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
