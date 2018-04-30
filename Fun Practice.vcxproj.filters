@@ -15,10 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="81_MovingMedian.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="82_ClosestEnemy2.cpp">
+    <ClCompile Include="83_GroupTotals.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

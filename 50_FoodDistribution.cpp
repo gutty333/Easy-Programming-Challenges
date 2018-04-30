@@ -9,40 +9,30 @@ Another example : if arr is[4, 5, 2, 3, 1, 0] then you can distribute the sandwi
 #include <iostream>	
 #include <string>
 #include <vector>
+#include <algorithm>
 using namespace std;
 
-void bubbleSort(vector <int>& list, vector <int>& index)
-{
-	int temp, temp2;
-	bool swap;
- 
-	do
-	{
-		swap = false;
 
-		for (int x = 1; x < list.size()-1; x++)
-		{
-			// Will move the elements around in the new list
-			// Also keeps track of the index in relation to the original array
-			if (list[x] < list[x + 1])
-			{
-				temp = list[x];
-				temp2 = index[x];
-				index[x] = index[x + 1];
-				index[x + 1] = temp2;
-				list[x] = list[x + 1];
-				list[x + 1] = temp;
-				swap = true;
-			}
-		}
-	} while (swap);
-}
+/*
+NEEDS FIX
 
+Will apply a greedy approach 
+first we will sort the hunger levels in descending order
+with the new order, we will traverse each value and compare it with its neighbor
+the goal is to always match the level together to minimize hunger levels
+so for example if current is 4 and neighbor is 2
+we do our best to bring the current hunger level to 2
+
+for each change we update our total sandwiches
+we also restart our iteration each time an change in hunger levels occurs 
+*/
 int FoodDistribution(int arr[], int size) 
 {
-	int total = arr[0]; // Number of Sandwiches
+	int numSandwiches = arr[0]; // Number of Sandwiches
 	int difference = 0; // Use to store the difference
 	bool give; // Signal each time a distribution takes place
+
+	vector <int> newList; // list used to sort our values
 
 	// Checking for the difference of the original
 	// In some cases we might not need to do food distribution if the difference across is 0
@@ -54,51 +44,58 @@ int FoodDistribution(int arr[], int size)
 			temp *= -1;
 		}
 		difference += temp;
+
+		newList.push_back(arr[x]);
 	}
 	if (difference == 0)
 	{
 		return 0;
 	}
 
-	vector <int> newList, indexConect;
-	newList.push_back(-1); // Garbage value just to keep the size parallel to original array
-	indexConect.push_back(-1);
+	// adding last element
+	newList.push_back(arr[size - 1]);
 
-	for (int x = 1; x < size; x++)
-	{
-		newList.push_back(arr[x]);
-		indexConect.push_back(x);
-	}
+	// sorting in descending order
+	sort(newList.rbegin(), newList.rend());
 
-	bubbleSort(newList, indexConect);
-
-	// Loop to distribute the food
+	// loop to balance hunger levels of each
 	do
 	{
 		give = false;
-		for (int x = 1; x < newList.size() - 1 && total > 0; x++)
+		for (int x = 0; x < newList.size() - 1; x++)
 		{
-			if (newList[x] > newList[x + 1])
+			// check the difference between the 2 neighbors
+			int temp = newList[x] - newList[x + 1];
+
+			// condition to check if hunger level for current person can be updated
+			if (temp != 0 && numSandwiches > 0)
 			{
-				give = true;
-				newList[x]--;
-				total--;
+				if (temp < 0)
+				{
+					// give this person the remaining sandwiches we had
+					newList[x] -= numSandwiches;
+					give = true;
+				}
+				else
+				{
+					// give this person the total difference between the their neighbor
+					// also update our sandwich count
+					newList[x] -= temp;
+					numSandwiches -= temp;
+					give = true;
+				}
+
 				break;
 			}
 		}
 	} while (give);
 
-	// Loop to match the new list to the original order
-	for (int x = 1; x < newList.size(); x++)
-	{
-		arr[x] = newList[indexConect[x]];
-	}
 
-	// Checking for the difference after the distribution took place
+	// final pass to get difference after our greedy approach
 	difference = 0;
-	for (int x = 1; x < size - 1; x++)
+	for (int x = 0; x < newList.size()-1; x++)
 	{
-		int temp = arr[x] - arr[x + 1];
+		int temp = newList[x] - newList[x + 1];
 		if (temp < 0)
 		{
 			temp *= -1;
@@ -118,6 +115,8 @@ int main()
 	int E[] = { 3, 2, 1, 0, 4, 1, 0 };
 	int F[] = { 4, 5, 4, 5, 2, 3, 1, 2 };
 	int G[] = { 7, 5, 4, 3, 4, 5, 2, 3, 1, 4, 5 };
+	int H[] = { 7, 1,1,1,1,1 };
+
 	cout << FoodDistribution(A, sizeof(A)/sizeof(A[0])) << endl; // 0
 	cout << FoodDistribution(B, sizeof(B) / sizeof(B[0])) << endl; // 2
 	cout << FoodDistribution(C, sizeof(C) / sizeof(C[0])) << endl; // 0
@@ -125,35 +124,7 @@ int main()
 	cout << FoodDistribution(E, sizeof(E) / sizeof(E[0])) << endl; // 4
 	cout << FoodDistribution(F, sizeof(F) / sizeof(F[0])) << endl; // 3
 	cout << FoodDistribution(G, sizeof(G) / sizeof(G[0])) << endl; // 6
-
-	/*
-	5 4 5 2 3 1 2
-	
-	4 4 4 2 3 1 2
-	4 4 4 2 2 1 2
-	4 4 4 2 2 1 1
-	0 0 2 0 1 0
-
-
-	5 5 4 3 2 2 1		4
-	5 4 4 3 2 2 1		3
-	4 4 4 3 2 2	1		2
-	4 4 3 3 2 2 1		1
-	4 3 3 3 2 2 1		0
-
-	4 3 3 2 3 1 2
-	1 0 1 1 2 1
-
-	
-	
-	5 4 3 4 5 2 3 1 4 5
-
-
-	
-
-	*/
-
-
+	cout << FoodDistribution(H, sizeof(H) / sizeof(H[0])) << endl; // 0
 
 	return 0;
 }

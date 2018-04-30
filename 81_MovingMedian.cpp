@@ -19,8 +19,8 @@ int MovingMedian(int arr[], int size)
 int main() 
 {
 	int A[] = { 3, 1, 3, 5, 10, 6, 4, 3, 1 };
-	int A[] = { 5, 2, 4, 6 };
-	int A[] = { 3, 0, 0, -2, 0, 2, 0, -2 };
+	int B[] = { 5, 2, 4, 6 };
+	int C[] = { 3, 0, 0, -2, 0, 2, 0, -2 };
 
 	cout << MovingMedian(A, sizeof(A) / sizeof(A[0])) << endl; // 1,2,3,5,6,6,4,3
 	cout << MovingMedian(B, sizeof(B) / sizeof(B[0])) << endl; // 2,3,4
