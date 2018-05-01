@@ -1,2 +1,2 @@
 # Fun-Practice
-Easy Difficulty programming challenges from coderbyte.  
+Easy programming challenges from coderbyte.  
