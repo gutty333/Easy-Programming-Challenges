@@ -1,15 +1,15 @@
-﻿Build started 4/30/2018 11:50:08 AM.
+﻿Build started 5/1/2018 2:13:57 PM.
      1>Project "C:\Users\gutty333\Documents\Visual Studio 2013\Projects\Fun Practice\Fun Practice\Fun Practice.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt 83_GroupTotals.cpp
-         83_GroupTotals.cpp
-     1>c:\users\gutty333\documents\visual studio 2013\projects\fun practice\fun practice\83_grouptotals.cpp(34): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\gutty333\documents\visual studio 2013\projects\fun practice\fun practice\83_grouptotals.cpp(49): warning C4018: '<' : signed/unsigned mismatch
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt 82_ClosestEnemy2.cpp
+         82_ClosestEnemy2.cpp
+     1>c:\users\gutty333\documents\visual studio 2013\projects\fun practice\fun practice\82_closestenemy2.cpp(36): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\gutty333\documents\visual studio 2013\projects\fun practice\fun practice\82_closestenemy2.cpp(63): warning C4018: '<' : signed/unsigned mismatch
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\gutty333\Documents\Visual Studio 2013\Projects\Fun Practice\Debug\Fun Practice.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\gutty333\Documents\Visual Studio 2013\Projects\Fun Practice\Debug\Fun Practice.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\gutty333\Documents\Visual Studio 2013\Projects\Fun Practice\Debug\Fun Practice.lib" /MACHINE:X86 Debug\83_GroupTotals.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\gutty333\Documents\Visual Studio 2013\Projects\Fun Practice\Debug\Fun Practice.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\gutty333\Documents\Visual Studio 2013\Projects\Fun Practice\Debug\Fun Practice.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\gutty333\Documents\Visual Studio 2013\Projects\Fun Practice\Debug\Fun Practice.lib" /MACHINE:X86 Debug\82_ClosestEnemy2.obj
          Fun Practice.vcxproj -> C:\Users\gutty333\Documents\Visual Studio 2013\Projects\Fun Practice\Debug\Fun Practice.exe
      1>Done Building Project "C:\Users\gutty333\Documents\Visual Studio 2013\Projects\Fun Practice\Fun Practice\Fun Practice.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:01.47
+Time Elapsed 00:00:01.34

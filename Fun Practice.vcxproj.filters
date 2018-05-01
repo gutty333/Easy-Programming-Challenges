@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="83_GroupTotals.cpp">
+    <ClCompile Include="82_ClosestEnemy2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
