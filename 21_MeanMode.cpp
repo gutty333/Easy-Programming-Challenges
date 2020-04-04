@@ -4,6 +4,57 @@
 #include <iostream>
 using namespace std;
 
+//we can solve it using another method
+/*
+
+bool sortByVal(const pair<int, int> &a, 
+               const pair<int, int> &b) 
+{ 
+    return (a.second < b.second); 
+} 
+
+int MeanMode(int A[], int n){
+    
+    
+    //finding mean of given array
+    int sum = 0;
+    for(int i = 0; i < n; i++)
+        sum += A[i];
+        
+    int mean = sum/n;
+    
+    
+    //creating a map to finding frequencies of given elements 
+    //or to find mode of given array.
+    map<int, int> m;
+	for(int i = 0; i < n; i++)
+	    m[A[i]]++;
+	
+	    
+	map<int, int>::iterator itr;
+	
+	
+    //push it into the vector for sorting elements
+    vector<pair<int, int>> vec;
+    for(itr = m.begin(); itr != m.end(); itr++)
+        vec.push_back(make_pair(itr->first, itr->second));
+    
+        
+    //sorting vector using second value of pair of vector.    
+    sort(vec.begin(), vec.end(), sortByVal);
+    int mode = vec.back().first;
+    
+    
+    //checking results if mean == mode ? return 1 : return 0;
+    if(mean == mode)
+        return 1;
+    else
+        return 0;
+    
+}
+
+*/
+
 
 int MeanMode(int arr[], int size) {
 

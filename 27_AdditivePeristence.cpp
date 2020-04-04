@@ -4,7 +4,33 @@
 #include <iostream>
 #include <string>
 #include <sstream>
+#include <bits/stdc++.h>
 using namespace std;
+
+/*
+
+//Recursive method to solve this problem
+int AdditivePersistence(int n){
+    static int count = 0;
+    //Checking if number n > 9 i.e, so that recursivly 
+    //we can find sum of it's digits
+    if(n > 9){
+        int sum = 0;
+        while(n > 0){
+            sum += n%10;
+            n = n/10;
+        }
+        //this will combine result
+        count++;
+        return AdditivePersistence(sum);
+    }
+    else
+        //similar to base case
+        return count;
+    
+}
+
+*/
 
 int AdditivePersistence(int num) {
 
